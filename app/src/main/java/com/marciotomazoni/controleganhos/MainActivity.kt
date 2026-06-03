@@ -1,5 +1,6 @@
 package com.marciotomazoni.controleganhos
 
+import com.marciotomazoni.controleganhos.navigation.AppNavigation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,7 +8,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,27 +24,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-
             ControleGanhosTheme {
-
-                Scaffold { paddingValues ->
-
-                    DashboardScreen(
-                        modifier = Modifier.padding(paddingValues)
-                    )
-
+                AppNavigation()
                 }
-
             }
-
         }
-
     }
 
-}
-
 @Composable
-fun DashboardScreen(modifier: Modifier = Modifier) {
+fun DashboardScreen(
+    modifier: Modifier = Modifier,
+    onNovaCorridaClick: () -> Unit
+) {
 
     Column(
         modifier = modifier
@@ -73,7 +64,7 @@ fun DashboardScreen(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(32.dp))
 
         Button(
-            onClick = { }
+            onClick = onNovaCorridaClick
         ) {
 
             Text("Nova Corrida")
