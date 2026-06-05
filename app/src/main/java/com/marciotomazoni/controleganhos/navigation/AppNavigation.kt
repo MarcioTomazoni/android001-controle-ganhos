@@ -27,7 +27,11 @@ fun AppNavigation() {
 
         composable("novo_registro") {
 
-            NovoRegistroScreen()
+            NovoRegistroScreen(
+                onSalvar = {
+                    navController.popBackStack()
+                }
+            )
 
         }
 

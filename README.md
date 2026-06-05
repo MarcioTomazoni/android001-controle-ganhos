@@ -121,17 +121,33 @@ Campos atuais:
 - Outras Despesas
 - Observação
 
+Observação:
+As despesas de combustível e outras despesas serão migradas futuramente para um módulo próprio de despesas, permitindo lançamentos independentes ao longo do dia.
+
+## 🔄 Retorno Automático ao Dashboard
+
+Após salvar um novo registro diário, o aplicativo retorna automaticamente para o Dashboard.
+
 Fluxo:
 
+```text
+Dashboard
+    ↓
+Novo Registro Diário
+    ↓
+Salvar
+    ↓
+Retorno Automático
+    ↓
+Dashboard Atualizado
 ```
-Usuário
-    ↓
-Preenche formulário
-    ↓
-Salva RegistroDiario
-    ↓
-RegistroRepository
-```
+
+Benefícios:
+
+* Melhor experiência do usuário
+* Confirmação visual imediata do lançamento
+* Atualização automática dos indicadores financeiros
+* Redução de cliques durante o uso diário
 
 ---
 
@@ -166,7 +182,9 @@ Funcionalidades validadas:
 - [x] Tela Dashboard
 - [x] Navegação entre telas
 - [x] Cadastro de Registro Diário
-- [ ] Dashboard dinâmico
+- [x] Dashboard dinâmico
+- [x] Retorno automático após salvar
+- [ ] Cadastro de Despesas
 - [ ] Relatório Diário
 
 ## Fase 2 — Persistência
@@ -190,8 +208,6 @@ Funcionalidades validadas:
 
 # 📚 Objetivos Futuros
 
-- Dashboard dinâmico
-- Cálculo automático de lucro líquido
 - Cálculo de R$/KM
 - Listagem de registros diários
 - Persistência local com Room Database
@@ -214,13 +230,15 @@ Funcionalidades implementadas:
 - Navigation Compose
 - Cadastro de Registro Diário
 - Armazenamento temporário em memória
+- Dashboard dinâmico
+- Retorno automático após salvar
 - Testes em dispositivo físico e emulador
 
 Próxima etapa:
 
-- Atualização automática do Dashboard com os registros cadastrados
-
----
+- Cadastro de despesas
+- Separação entre receitas e despesas
+- Cálculo consolidado do lucro diário
 
 ---
 
@@ -229,5 +247,3 @@ Próxima etapa:
 Márcio Tomazoni
 
 Projeto criado para estudo de desenvolvimento Android com Kotlin e Jetpack Compose, aplicado ao controle financeiro de motoristas de aplicativo.
-
-

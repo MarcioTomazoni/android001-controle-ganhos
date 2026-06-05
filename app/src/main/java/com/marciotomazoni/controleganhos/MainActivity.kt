@@ -1,5 +1,6 @@
 package com.marciotomazoni.controleganhos
 
+import com.marciotomazoni.controleganhos.repository.RegistroRepository
 import com.marciotomazoni.controleganhos.navigation.AppNavigation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -37,6 +38,16 @@ fun DashboardScreen(
     onNovaCorridaClick: () -> Unit
 ) {
 
+    val ganhos = RegistroRepository.registros.sumOf {
+        it.ganhos
+    }
+
+    val despesas = RegistroRepository.registros.sumOf {
+        it.combustivel + it.outrasDespesas
+    }
+
+    val lucro = ganhos - despesas
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -51,15 +62,15 @@ fun DashboardScreen(
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        Text("Ganhos Hoje: R$ 0,00")
+        Text("Ganhos Hoje: R$ %.2f".format(ganhos))
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Text("Gastos Hoje: R$ 0,00")
+        Text("Gastos Hoje: R$ %.2f".format(despesas))
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Text("Lucro Hoje: R$ 0,00")
+        Text("Lucro Hoje: R$ %.2f".format(lucro))
 
         Spacer(modifier = Modifier.height(32.dp))
 

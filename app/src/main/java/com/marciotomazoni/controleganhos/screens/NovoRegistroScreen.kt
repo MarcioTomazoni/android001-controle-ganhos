@@ -9,7 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun NovoRegistroScreen() {
+fun NovoRegistroScreen(
+    onSalvar: () -> Unit
+) {
 
     var data by remember { mutableStateOf("") }
 
@@ -105,6 +107,8 @@ fun NovoRegistroScreen() {
                         )
 
                     )
+
+                    onSalvar()
 
                     println(RegistroRepository.registros)
 
