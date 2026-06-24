@@ -35,7 +35,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DashboardScreen(
     modifier: Modifier = Modifier,
-    onNovaCorridaClick: () -> Unit
+    onNovaCorridaClick: () -> Unit,
+    onNovaDespesaClick: () -> Unit
 ) {
 
     val ganhos = RegistroRepository.registros.sumOf {
@@ -78,8 +79,16 @@ fun DashboardScreen(
             onClick = onNovaCorridaClick
         ) {
 
-            Text("Nova Corrida")
+            Text("Registrar Dia")
 
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        Button(
+            onClick = onNovaDespesaClick
+        ) {
+            Text("Registrar Despesa")
         }
 
     }

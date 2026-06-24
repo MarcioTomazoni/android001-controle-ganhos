@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.*
 import com.marciotomazoni.controleganhos.DashboardScreen
 import com.marciotomazoni.controleganhos.screens.NovoRegistroScreen
+import com.marciotomazoni.controleganhos.screens.NovaDespesaScreen
 
 @Composable
 fun AppNavigation() {
@@ -18,20 +19,31 @@ fun AppNavigation() {
         composable("dashboard") {
 
             DashboardScreen(
-                onNovaCorridaClick = {
-                    navController.navigate("novo_registro")
-                }
-            )
 
+                onNovaCorridaClick = {
+                    navController.navigate("nova_corrida")
+                },
+
+                onNovaDespesaClick = {
+                    navController.navigate("nova_despesa")
+                }
+
+            )
         }
 
-        composable("novo_registro") {
+        composable("nova_corrida") {
 
             NovoRegistroScreen(
                 onSalvar = {
                     navController.popBackStack()
                 }
             )
+
+        }
+
+        composable("nova_despesa") {
+
+            NovaDespesaScreen()
 
         }
 

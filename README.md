@@ -108,6 +108,34 @@ Objetivos:
 
 ---
 
+## 💰 Cadastro de Despesas
+
+O projeto já possui uma tela dedicada para registro de despesas operacionais.
+
+Objetivo:
+
+- Combustível
+- Alimentação
+- Pedágio
+- Lavagem
+- Estacionamento
+- Outros
+
+A estrutura utiliza:
+
+models/
+└── Despesa.kt
+
+repository/
+└── DespesaRepository.kt
+
+screens/
+└── NovaDespesaScreen.kt
+
+A integração com Dashboard será realizada nas próximas etapas.
+
+---
+
 ## 🚗 Cadastro de Registro Diário
 
 O aplicativo já possui uma tela funcional para lançamento de informações operacionais do motorista.
@@ -123,6 +151,8 @@ Campos atuais:
 
 Observação:
 As despesas de combustível e outras despesas serão migradas futuramente para um módulo próprio de despesas, permitindo lançamentos independentes ao longo do dia.
+
+---
 
 ## 🔄 Retorno Automático ao Dashboard
 
@@ -184,7 +214,9 @@ Funcionalidades validadas:
 - [x] Cadastro de Registro Diário
 - [x] Dashboard dinâmico
 - [x] Retorno automático após salvar
-- [ ] Cadastro de Despesas
+- [x] Estrutura do Cadastro de Despesas
+- [ ] Persistência das Despesas
+- [ ] Integração das Despesas com Dashboard
 - [ ] Relatório Diário
 
 ## Fase 2 — Persistência
